@@ -10,7 +10,7 @@
 
 module.exports = (robot) ->
 	robot.hear /#_[0-9a-zA-Z\-_]+/i, (msg) ->
-		user = msg.message.user
+		user = msg.envelope.user
 		msg.send "#{user.name}"
 
 
