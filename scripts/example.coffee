@@ -9,8 +9,10 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
-  robot.hear /#_[0-9a-zA-Z\-_]+/i, (msg) ->
-    msg.send "HelloWorld"
+	robot.hear /#_[0-9a-zA-Z\-_]+/i, (msg) ->
+		user = msg.user
+		msg.send user
+
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
