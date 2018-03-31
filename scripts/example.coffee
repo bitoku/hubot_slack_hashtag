@@ -11,7 +11,7 @@
 module.exports = (robot) ->
 	robot.hear /#_[0-9a-zA-Z\-_]+/i, (msg) ->
 		user = msg.user
-		msg.send user
+		msg.send "#{user}"
 
 
   # robot.hear /badger/i, (res) ->
