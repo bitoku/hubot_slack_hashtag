@@ -23,6 +23,8 @@ module.exports = (robot) ->
 		if msg.message.room == channel.id
 			return
 
+		console.log Object(user)
+
 		apiFunc = (err, res) ->
 			console.log(err)
 			text = (msg.message.text.replace "##{msg.match[1]}", '').trim()
