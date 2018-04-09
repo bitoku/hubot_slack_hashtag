@@ -28,7 +28,7 @@ module.exports = (robot) ->
 		apiFunc = (err, res) ->
 			console.log(err)
 			text = (msg.message.text.replace "##{msg.match[1]}", '').trim()
-			username = user.profile.display_name
+			username = user.real_name
 			icon_url = user.profile.image_72
 			attachments = JSON.stringify [
 				title: "in ##{robot.adapter.client.rtm.dataStore.channels[msg.message.room].name}"
