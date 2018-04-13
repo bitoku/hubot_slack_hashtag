@@ -1,11 +1,15 @@
 module.exports = (robot) ->
-  # for slack-node
-	token = process.env.HUBOT_SLACK_TOKEN
-	Slack = require("slack-node")
-	slack = new Slack(token)
+# for slack-node
+  token = process.env.HUBOT_SLACK_TOKEN
+  Slack = require("slack-node")
+  slack = new Slack(token)
+
+  # if pinged, return pong (avoid 404)
+  robot.router.get '/', (req, res) ->
+    res.send('pong')
 
   # bot watches any post(raw message)
-	robot.adapter.client.on 'raw_message', (msg) ->
+  robot.adapter.client.on 'raw_message', (msg) ->
     message = JSON.parse(msg)
 
     if message.type isnt "pong"
@@ -75,7 +79,7 @@ module.exports = (robot) ->
                   title: "on " + file_name
                   image_url: file
                 }
-                ]
+              ]
           else
             post_data =
               username: user.real_name
